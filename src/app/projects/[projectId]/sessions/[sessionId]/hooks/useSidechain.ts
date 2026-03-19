@@ -14,7 +14,8 @@ export const useSidechain = (conversations: Conversation[]) => {
         conv.type !== "queue-operation" &&
         conv.type !== "progress" &&
         conv.type !== "custom-title" &&
-        conv.type !== "agent-name",
+        conv.type !== "agent-name" &&
+        conv.type !== "last-prompt",
     )
     .filter((conv) => conv.isSidechain === true);
 
@@ -100,7 +101,8 @@ export const useSidechain = (conversations: Conversation[]) => {
         conversation.type === "file-history-snapshot" ||
         conversation.type === "queue-operation" ||
         conversation.type === "custom-title" ||
-        conversation.type === "agent-name"
+        conversation.type === "agent-name" ||
+        conversation.type === "last-prompt"
       ) {
         return false;
       }

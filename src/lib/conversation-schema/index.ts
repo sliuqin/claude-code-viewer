@@ -6,6 +6,7 @@ import {
 } from "./entry/AssistantEntrySchema";
 import { CustomTitleEntrySchema } from "./entry/CustomTitleEntrySchema";
 import { FileHistorySnapshotEntrySchema } from "./entry/FileHIstorySnapshotEntrySchema";
+import { LastPromptEntrySchema } from "./entry/LastPromptEntrySchema";
 import { ProgressEntrySchema } from "./entry/ProgressEntrySchema";
 import { QueueOperationEntrySchema } from "./entry/QueueOperationEntrySchema";
 import { SummaryEntrySchema } from "./entry/SummaryEntrySchema";
@@ -23,7 +24,9 @@ export const ConversationSchema = z.union([
   ProgressEntrySchema,
   CustomTitleEntrySchema,
   AgentNameEntrySchema,
+  LastPromptEntrySchema,
 ]);
 
 export type Conversation = z.infer<typeof ConversationSchema>;
 export type SidechainConversation = UserEntry | AssistantEntry | SystemEntry;
+export type { LastPromptEntry } from "./entry/LastPromptEntrySchema";

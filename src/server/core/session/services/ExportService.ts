@@ -436,6 +436,7 @@ const buildSidechainData = (
       conv.type !== "progress" &&
       conv.type !== "custom-title" &&
       conv.type !== "agent-name" &&
+      conv.type !== "last-prompt" &&
       conv.isSidechain === true,
   ) as Array<Extract<Conversation, { type: "user" | "assistant" | "system" }>>;
 
@@ -1099,6 +1100,7 @@ export const generateSessionHtml = (
         conv.type !== "progress" &&
         conv.type !== "custom-title" &&
         conv.type !== "agent-name" &&
+        conv.type !== "last-prompt" &&
         conv.isSidechain === true &&
         conv.agentId !== undefined
       ) {

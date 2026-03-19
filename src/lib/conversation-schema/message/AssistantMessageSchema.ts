@@ -22,8 +22,8 @@ export const AssistantMessageSchema = z.object({
   role: z.literal("assistant"),
   model: z.string(),
   content: z.array(AssistantMessageContentSchema),
-  stop_reason: z.string().nullable(),
-  stop_sequence: z.string().nullable(),
+  stop_reason: z.string().nullable().optional(),
+  stop_sequence: z.string().nullable().optional(),
   usage: z.object({
     input_tokens: z.number(),
     cache_creation_input_tokens: z.number().optional(),
@@ -39,7 +39,11 @@ export const AssistantMessageSchema = z.object({
     server_tool_use: z
       .object({
         web_search_requests: z.number(),
+        web_fetch_requests: z.number().optional(),
       })
       .optional(),
+    inference_geo: z.string().optional(),
+    iterations: z.array(z.unknown()).optional(),
+    speed: z.string().optional(),
   }),
 });
