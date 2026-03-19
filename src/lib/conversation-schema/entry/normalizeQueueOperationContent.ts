@@ -13,8 +13,13 @@ type EnqueueContent = Extract<
  * @returns Normalized string representation
  */
 export const normalizeQueueOperationContent = (
-  content: EnqueueContent,
+  content: EnqueueContent | undefined,
 ): string => {
+  // Handle undefined content
+  if (content === undefined) {
+    return "";
+  }
+
   // Legacy format: string
   if (typeof content === "string") {
     return content;
